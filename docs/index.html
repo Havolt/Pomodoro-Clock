@@ -15,6 +15,11 @@
       width: 40px;
     }
 
+    #startButton{
+      margin-top: 40px;
+      width: 80px;
+    }
+
     </style>
   </head>
   <body>
@@ -31,6 +36,8 @@
 
     //Time related lets
     let time = new Date();
+    let alarmTimeTotal;
+    let breakTimeTotal;
     let userAlarmMins = 0;
     let userBreakMins = 0;
 
@@ -84,6 +91,32 @@
       }
     }
 
+    function startButton(){
+      const butt = document.createElement('button');
+      butt.innerHTML = "Begin";
+      butt.id = "startButton";
+      app.appendChild(butt);
+    }
+
+    //
+    //
+    //
+    //
+    //
+    //
+    function runApp(){
+      if(userAlarmMins == 0){
+        alert('Must set session time greater than zero');
+      }
+      else if(userBreakMins == 0){
+        alert('Must set break time greater than zero');
+      }
+      else{
+        alarmTimeTotal = userAlarmMins * 60;
+        console.log(alarmTimeTotal);
+      }
+    }
+
     var buttonCheck = function(event){
       if(event.target.id == 'breakMinus' && userBreakMins > 0){
         userBreakMins--;
@@ -101,12 +134,15 @@
         userAlarmMins++;
         alarmNumDisplay.innerHTML = userAlarmMins;
       }
-      console.log(event);
+      else if(event.target.id == 'startButton'){
+        runApp();
+      }
     }
 
     function init(){
       alarmTimeMaker();
       breakTimeMaker();
+      startButton();
       breakNumDisplay = document.getElementById('breakNumDisplay');
       alarmNumDisplay = document.getElementById('alarmNumDisplay');
     }
@@ -116,6 +152,8 @@
     for(var i = 0; i < buttons.length; i++){
       buttons[i].addEventListener('click', buttonCheck);
     }
+
+
 
 
 
