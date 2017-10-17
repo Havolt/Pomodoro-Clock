@@ -6,6 +6,14 @@
 
     <style>
 
+    body, html{
+      background-color: #f7f7f7;
+    }
+
+    button{
+      margin-right: 10px;
+      width: 40px;
+    }
 
     </style>
   </head>
@@ -16,6 +24,73 @@
 
     <script>
 
+    const app = document.getElementById('app');
+
+    //Time related lets
+    let time = new Date();
+    let userAlarmMins = 0;
+    let userBreakMins = 0;
+
+    //Function makes the user interface for Alarm
+    function alarmTimeMaker(){
+      const alarmDiv = document.createElement('div');
+      alarmDiv.className += 'alarmDiv';
+      app.appendChild(alarmDiv);
+      const alarmLength = document.createElement('h3');
+      alarmLength.innerHTML = "Session Length";
+      alarmDiv.appendChild(alarmLength);
+      const alarmNum = document.createElement('h1');
+      alarmNum.innerHTML = userAlarmMins;
+      alarmDiv.appendChild(alarmNum);
+      for(var i = 0; i < 2; i++){
+        const butt = document.createElement('button');
+        if(i == 0){
+          butt.innerHTML = '-';
+          butt.id = 'alarmMinus';
+        }else{
+          butt.innerHTML = '+';
+          butt.id = 'alarmPlus';
+        }
+        alarmDiv.appendChild(butt);
+      }
+    }
+
+    //Function makes the user interface for Alarm
+    function breakTimeMaker(){
+      const breakDiv = document.createElement('div');
+      breakDiv.className += 'breakDiv';
+      app.appendChild(breakDiv);
+      const breakLength = document.createElement('h3');
+      breakLength.innerHTML = "Break Length";
+      breakDiv.appendChild(breakLength);
+      const breakNum = document.createElement('h1');
+      breakNum.innerHTML = userBreakMins;
+      breakDiv.appendChild(breakNum);
+      for(var i = 0; i < 2; i++){
+        const butt = document.createElement('button');
+        if(i == 0){
+          butt.innerHTML = '-';
+          butt.id = 'breakMinus';
+        }else{
+          butt.innerHTML = '+';
+          butt.id = 'breakPlus';
+        }
+        breakDiv.appendChild(butt);
+      }
+    }
+
+    function init(){
+      alarmTimeMaker();
+      breakTimeMaker();
+    }
+
+    init();
+
+
+
+
+
+    console.log(time.getTime());
 
 
     </script>
