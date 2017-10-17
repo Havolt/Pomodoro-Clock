@@ -39,6 +39,8 @@
     let alarmTimeTotal;
     let breakTimeTotal;
     let alarmSet = false;
+    let breakSet = false;
+    let breakBool = false;
     let userAlarmMins = 0;
     let userBreakMins = 0;
 
@@ -113,14 +115,35 @@
         alert('Must set break time greater than zero');
       }
       else{
-        if(alarmSet == false){
-          alarmTimeTotal = userAlarmMins * 60;
-          alarmSet = true;
+        if(!breakBool){
+          if(alarmSet == false){
+            alarmTimeTotal = userAlarmMins * 60;
+            breakSet = false;
+            alarmSet = true;
+          }
+          console.log(alarmTimeTotal);
+          alarmTimeTotal--;
+          if(alarmTimeTotal > -1){
+            setTimeout(runApp, 1000);
+          }
+          if(alarmTimeTotal == 0){
+            breakBool = true;
+          }
         }
-        console.log(alarmTimeTotal);
-        alarmTimeTotal--;
-        if(alarmTimeTotal > -1){
-          setTimeout(runApp, 1000);
+        else{
+          if(breakSet == false){
+            breakTimeTotal = userBreakMins * 60;
+            alarmSet = false;
+            breakSet = true;
+          }
+          console.log(breakTimeTotal);
+          breakTimeTotal--;
+          if(breakTimeTotal > -1){
+            setTimeout(runApp, 1000);
+          }
+          if(breakTimeTotal == 0){
+            breakBool = false;
+          }
         }
       }
     }
