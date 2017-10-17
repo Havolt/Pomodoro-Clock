@@ -38,6 +38,7 @@
     let time = new Date();
     let alarmTimeTotal;
     let breakTimeTotal;
+    let alarmSet = false;
     let userAlarmMins = 0;
     let userBreakMins = 0;
 
@@ -112,8 +113,15 @@
         alert('Must set break time greater than zero');
       }
       else{
-        alarmTimeTotal = userAlarmMins * 60;
+        if(alarmSet == false){
+          alarmTimeTotal = userAlarmMins * 60;
+          alarmSet = true;
+        }
         console.log(alarmTimeTotal);
+        alarmTimeTotal--;
+        if(alarmTimeTotal > -1){
+          setTimeout(runApp, 1000);
+        }
       }
     }
 
