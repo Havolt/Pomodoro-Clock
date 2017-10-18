@@ -35,6 +35,8 @@
     let alarmNumDisplay;
     let countdown;
     let countdownHTML;
+    let timeArr = [0, 0, 0]
+
 
     //Time related lets
     let time = new Date();
@@ -141,6 +143,7 @@
           countdown.innerHTML = alarmTimeTotal;
           console.log(alarmTimeTotal);
           alarmTimeTotal--;
+          makeMinutes(alarmTimeTotal);
           if(alarmTimeTotal > -1){
             setTimeout(runApp, 10);
           }
@@ -158,6 +161,7 @@
           countdown.innerHTML = breakTimeTotal;
           console.log(breakTimeTotal);
           breakTimeTotal--;
+          makeMinutes(breakTimeTotal);
           if(breakTimeTotal > -1){
             setTimeout(runApp, 10);
           }
@@ -205,6 +209,26 @@
 
     for(var i = 0; i < buttons.length; i++){
       buttons[i].addEventListener('click', buttonCheck);
+    }
+
+    function makeMinutes(x){
+        timeArr = [0, 0, 0];
+        for(var i = 0; i < x; i++){
+          timeArr[0]++;
+          if(timeArr[0] == 60){
+            timeArr[1]++;
+            timeArr[0] = 0;
+          }
+          if(timeArr[0] == 60){
+            timeArr[1]++;
+            timeArr[0] = 0;
+          }
+          if(timeArr[1] == 60){
+            timeArr[2]++;
+            timeArr[1] = 0;
+          }
+      }
+      console.log(timeArr);
     }
 
 
