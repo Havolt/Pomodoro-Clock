@@ -101,6 +101,20 @@
       app.appendChild(butt);
     }
 
+    function counter(){
+      const counterDiv = document.createElement('div');
+      counterDiv.id = 'counterDiv';
+      app.appendChild(counterDiv);
+      const counterHTML = document.createElement('h2');
+      counterHTML.id = "counterHTML";
+      counterHTML.innerHTML = "Preparing Session";
+      counterDiv.appendChild(counterHTML);
+      const timer = document.createElement('h1');
+      timer.innerHTML = 0;
+      timer.id = "counter";
+      counterDiv.appendChild(timer);
+    }
+
     //
     //
     //
@@ -174,6 +188,7 @@
       alarmTimeMaker();
       breakTimeMaker();
       startButton();
+      counter();
       breakNumDisplay = document.getElementById('breakNumDisplay');
       alarmNumDisplay = document.getElementById('alarmNumDisplay');
     }
