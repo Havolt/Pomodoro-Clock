@@ -140,7 +140,28 @@
             alarmSet = true;
             countdownHTML.innerHTML = "Session Time Remaining";
           }
-          countdown.innerHTML = alarmTimeTotal;
+
+          ///
+          if(timeArr[2] > 0){
+            countdown.innerHTML = timeArr[2] + ':';
+          }
+          else{
+            countdown.innerHTML = "";
+          }
+          if(timeArr[1] < 9){
+            countdown.innerHTML += '0' + timeArr[1] + ':';
+          }
+          else{
+            countdown.innerHTML += timeArr[1] + ':';
+          }
+          if(timeArr[0] < 9){
+            countdown.innerHTML += '0' + timeArr[0];
+          }
+          else{
+            countdown.innerHTML += timeArr[0];
+          }
+
+          ///
           console.log(alarmTimeTotal);
           alarmTimeTotal--;
           makeMinutes(alarmTimeTotal);
@@ -158,7 +179,24 @@
             breakSet = true;
             countdownHTML.innerHTML = "Break Time Remaining";
           }
-          countdown.innerHTML = breakTimeTotal;
+          if(timeArr[2] > 0){
+            countdown.innerHTML = timeArr[2] + ':';
+          }
+          else{
+            countdown.innerHTML = "";
+          }
+          if(timeArr[1] < 9){
+            countdown.innerHTML += '0' + timeArr[1] + ':';
+          }
+          else{
+            countdown.innerHTML += timeArr[1] + ':';
+          }
+          if(timeArr[0] < 9){
+            countdown.innerHTML += '0' + timeArr[0];
+          }
+          else{
+            countdown.innerHTML += timeArr[0];
+          }
           console.log(breakTimeTotal);
           breakTimeTotal--;
           makeMinutes(breakTimeTotal);
