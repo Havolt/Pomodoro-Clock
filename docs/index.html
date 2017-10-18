@@ -7,9 +7,15 @@
     <style>
 
     body, html{
-      background-color: #f7f7f7;
+      background-color: #ffd8aa;
       width: 100%;
       font-family: arial;
+
+    }
+
+    h3{
+      font-size: 1.2em;
+      font-weight: bold;
     }
 
     #app{
@@ -19,14 +25,34 @@
     button{
       margin-right: 10px;
       width: 60px;
+      background-color: #7d82b0;
+      color: white;
+      border-radius: 35%;
+      font-size: 1.1em;
+    }
+
+    button:hover{
+      cursor: pointer;
+      background-color: #535993;
+      box-shadow: 1px 1px 1px black;
     }
 
     #startButton{
-      margin-top: 40px;
       display: block;
+      font-size: 2em;
       margin: 40px auto;
-      width: 120px;
+      width: 220px;
+      height: 60px;
+      background-color: #6F90A2;
+      color: white;
+      border-radius: 8%;
+    }
 
+    #startButton:hover{
+      box-shadow: 1px 1px 2px black;
+      cursor: pointer;
+      font-size: 2.2em;
+    background-color: #477187;
     }
 
     .alarmDiv{
@@ -41,6 +67,7 @@
 
     #countdown{
       text-align: center;
+      font-size: 3em;
     }
 
 
@@ -130,7 +157,7 @@
 
     function startButton(){
       const butt = document.createElement('button');
-      butt.innerHTML = "Begin";
+      butt.innerHTML = "Start";
       butt.id = "startButton";
       app.appendChild(butt);
     }
@@ -196,7 +223,7 @@
           alarmTimeTotal--;
           makeMinutes(alarmTimeTotal);
           if(alarmTimeTotal > -1){
-            setTimeout(runApp, 10);
+            setTimeout(runApp, 1000);
           }
           if(alarmTimeTotal == 0){
             breakBool = true;
@@ -231,7 +258,7 @@
           breakTimeTotal--;
           makeMinutes(breakTimeTotal);
           if(breakTimeTotal > -1){
-            setTimeout(runApp, 10);
+            setTimeout(runApp, 1000);
           }
           if(breakTimeTotal == 0){
             breakBool = false;
