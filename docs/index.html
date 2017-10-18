@@ -8,16 +8,46 @@
 
     body, html{
       background-color: #f7f7f7;
+      width: 100%;
+      font-family: arial;
+    }
+
+    #app{
+      width: 100%;
     }
 
     button{
       margin-right: 10px;
-      width: 40px;
+      width: 60px;
     }
 
     #startButton{
       margin-top: 40px;
-      width: 80px;
+      display: block;
+      margin: 40px auto;
+      width: 120px;
+
+    }
+
+    .alarmDiv{
+      display: inline-block;
+      width: 50%;
+      text-align: center;
+    }
+
+    #counterHTML{
+      text-align: center;
+    }
+
+    #countdown{
+      text-align: center;
+    }
+
+
+    .breakDiv{
+      display: inline-block;
+      text-align: center;
+      width: 50%;
     }
 
     </style>
@@ -114,7 +144,7 @@
       counterHTML.innerHTML = "Preparing Session";
       counterDiv.appendChild(counterHTML);
       const timer = document.createElement('h1');
-      timer.innerHTML = 0;
+      timer.innerHTML = '00:00';
       timer.id = "countdown";
       counterDiv.appendChild(timer);
     }
