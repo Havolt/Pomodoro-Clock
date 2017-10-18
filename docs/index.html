@@ -33,6 +33,8 @@
     const buttons = document.getElementsByTagName('button');
     let breakNumDisplay;
     let alarmNumDisplay;
+    let countdown;
+    let countdownHTML;
 
     //Time related lets
     let time = new Date();
@@ -111,7 +113,7 @@
       counterDiv.appendChild(counterHTML);
       const timer = document.createElement('h1');
       timer.innerHTML = 0;
-      timer.id = "counter";
+      timer.id = "countdown";
       counterDiv.appendChild(timer);
     }
 
@@ -134,11 +136,13 @@
             alarmTimeTotal = userAlarmMins * 60;
             breakSet = false;
             alarmSet = true;
+            countdownHTML.innerHTML = "Session Time Remaining";
           }
+          countdown.innerHTML = alarmTimeTotal;
           console.log(alarmTimeTotal);
           alarmTimeTotal--;
           if(alarmTimeTotal > -1){
-            setTimeout(runApp, 1000);
+            setTimeout(runApp, 10);
           }
           if(alarmTimeTotal == 0){
             breakBool = true;
@@ -149,11 +153,13 @@
             breakTimeTotal = userBreakMins * 60;
             alarmSet = false;
             breakSet = true;
+            countdownHTML.innerHTML = "Break Time Remaining";
           }
+          countdown.innerHTML = breakTimeTotal;
           console.log(breakTimeTotal);
           breakTimeTotal--;
           if(breakTimeTotal > -1){
-            setTimeout(runApp, 1000);
+            setTimeout(runApp, 10);
           }
           if(breakTimeTotal == 0){
             breakBool = false;
@@ -191,6 +197,8 @@
       counter();
       breakNumDisplay = document.getElementById('breakNumDisplay');
       alarmNumDisplay = document.getElementById('alarmNumDisplay');
+      countdown = document.getElementById('countdown');
+      countdownHTML = document.getElementById('counterHTML');
     }
 
     init();
