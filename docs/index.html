@@ -270,19 +270,19 @@
     var buttonCheck = function(event){
       if(event.target.id == 'breakMinus' && userBreakMins > 0){
         userBreakMins--;
-        breakNumDisplay.innerHTML = userBreakMins;
+        breakNumDisplay.innerHTML = userBreakMins + ' mins';
       }
       else if(event.target.id == 'breakPlus'){
         userBreakMins++;
-        breakNumDisplay.innerHTML = userBreakMins;
+        breakNumDisplay.innerHTML = userBreakMins + ' mins';
       }
       else if(event.target.id == 'alarmMinus' && userAlarmMins > 0){
         userAlarmMins--;
-        alarmNumDisplay.innerHTML = userAlarmMins;
+        alarmNumDisplay.innerHTML = userAlarmMins + ' mins';
       }
       else if(event.target.id == 'alarmPlus'){
         userAlarmMins++;
-        alarmNumDisplay.innerHTML = userAlarmMins;
+        alarmNumDisplay.innerHTML = userAlarmMins + ' mins';
       }
       else if(event.target.id == 'startButton'){
         runApp();
