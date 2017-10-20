@@ -38,6 +38,14 @@
     }
 
     #startButton{
+
+    }
+
+    #startButton:hover{
+
+    }
+
+    .startButtonClass{
       display: block;
       font-size: 2em;
       margin: 40px auto;
@@ -48,14 +56,14 @@
       border-radius: 8%;
     }
 
-    #startButton:hover{
+    .startButtonClass:hover{
       box-shadow: 1px 1px 2px black;
       cursor: pointer;
       font-size: 2.2em;
     background-color: #477187;
     }
 
-    #startButtonTwo{
+    .startButtonClassTwo{
       display: block;
       font-size: 2em;
       margin: 40px auto;
@@ -66,7 +74,7 @@
       border-radius: 8%;
     }
 
-    #startButtonTwo:hover{
+    .startButtonClassTwo:hover{
       box-shadow: 1px 1px 2px black;
       cursor: pointer;
       font-size: 2.2em;
@@ -106,6 +114,10 @@
 
     <script>
 
+    /*
+      Need to set inPrgress to obtain value when button starterButton is pressed
+    */
+
     const app = document.getElementById('app');
     const buttons = document.getElementsByTagName('button');
     let starterButton;
@@ -114,7 +126,8 @@
     let countdown;
     let countdownHTML;
     let timeArr = [0, 0, 0]
-    let inProgress = -1;
+    let progRun = -1;
+    let inProgress = 0;
 
 
     //Time related lets
@@ -181,6 +194,7 @@
       const butt = document.createElement('button');
       butt.innerHTML = "Start";
       butt.id = "startButton";
+      butt.className = "startButtonClass"
       app.appendChild(butt);
       starterButton = document.getElementById('startButton');
     }
@@ -295,7 +309,7 @@
       }
     }
 
-    var buttonCheck = function(event){
+    const buttonCheck = function(event){
       if(event.target.id == 'breakMinus' && userBreakMins > 0){
         userBreakMins--;
         breakNumDisplay.innerHTML = userBreakMins + ' mins';
@@ -313,8 +327,20 @@
         alarmNumDisplay.innerHTML = userAlarmMins + ' mins';
       }
       else if(event.target.id == 'startButton'){
-        if(userAlarmMins > 0 && userBreakMins > 0){
-          inProgress = -inProgress;
+        if(userAlarmMins > 0 && userBreakMins > 0 && progRun == -1){
+          progRun = -progRun;
+          inProgress = 1;
+          starterButton.innerHTML="Reset";
+          starterButton.classList.remove("startButtonClass");
+          starterButton.classList.add("startButtonClassTwo");
+        }
+        else if(progRun = 1){
+          progRun = -progRun;
+          inProgress = 0;
+          starterButton.innerHTML = "Start";
+          console.log(starterButton.classList);
+          starterButton.classList.remove("startButtonClassTwo");
+          starterButton.classList.add("startButtonClass");
         }
         runApp();
 
