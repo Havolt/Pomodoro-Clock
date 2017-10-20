@@ -327,6 +327,12 @@
         alarmNumDisplay.innerHTML = userAlarmMins + ' mins';
       }
       else if(event.target.id == 'startButton'){
+        if(userAlarmMins == 0){
+          alert('Session time must be longer than zero');
+        }
+        else if(userBreakMins == 0){
+          alert('Break time must be longer than zero');
+        }
         if(userAlarmMins > 0 && userBreakMins > 0 && progRun == -1){
           progRun = -progRun;
           inProgress = 1;
